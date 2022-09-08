@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OnSpotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attendency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Enter" Type="nchar" MaxLength="10" />
+          <Property Name="Exit" Type="nchar" MaxLength="10" />
+          <Property Name="Date" Type="nchar" MaxLength="10" />
+          <Property Name="UserId" Type="nchar" MaxLength="10" />
+          <Property Name="CourseId" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumOfLessons" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="start" Type="time" Precision="7" />
+          <Property Name="finish" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="LessonToCourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="LessonId" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentToCourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FName" Type="varchar" MaxLength="50" />
+          <Property Name="LName" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="nchar" MaxLength="10" />
+          <Property Name="BDate" Type="date" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="AllowingAccess" Type="bit" />
+          <Property Name="password" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Course_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LessonToCourse_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="LessonToCourse" Type="Self.LessonToCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LessonToCourse">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LessonToCourse_Lesson">
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+          <End Role="LessonToCourse" Type="Self.LessonToCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LessonToCourse">
+              <PropertyRef Name="LessonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentToCourse_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="StudentToCourse" Type="Self.StudentToCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentToCourse">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OnSpotModelStoreContainer">
+          <EntitySet Name="Attendency" EntityType="Self.Attendency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LessonToCourse" EntityType="Self.LessonToCourse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentToCourse" EntityType="Self.StudentToCourse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Course_User" Association="Self.FK_Course_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LessonToCourse_Course" Association="Self.FK_LessonToCourse_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="LessonToCourse" EntitySet="LessonToCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LessonToCourse_Lesson" Association="Self.FK_LessonToCourse_Lesson">
+            <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="LessonToCourse" EntitySet="LessonToCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentToCourse_User" Association="Self.FK_StudentToCourse_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="StudentToCourse" EntitySet="StudentToCourse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OnSpotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OnSpotEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attendency" EntityType="OnSpotModel.Attendency" />
+          <EntitySet Name="Course" EntityType="OnSpotModel.Course" />
+          <EntitySet Name="Lesson" EntityType="OnSpotModel.Lesson" />
+          <EntitySet Name="LessonToCourse" EntityType="OnSpotModel.LessonToCourse" />
+          <EntitySet Name="StudentToCourse" EntityType="OnSpotModel.StudentToCourse" />
+          <EntitySet Name="User" EntityType="OnSpotModel.User" />
+          <AssociationSet Name="FK_Course_User" Association="OnSpotModel.FK_Course_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LessonToCourse_Course" Association="OnSpotModel.FK_LessonToCourse_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="LessonToCourse" EntitySet="LessonToCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LessonToCourse_Lesson" Association="OnSpotModel.FK_LessonToCourse_Lesson">
+            <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="LessonToCourse" EntitySet="LessonToCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentToCourse_User" Association="OnSpotModel.FK_StudentToCourse_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="StudentToCourse" EntitySet="StudentToCourse" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Attendency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Enter" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Exit" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CourseId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumOfLessons" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="OnSpotModel.FK_Course_User" FromRole="Course" ToRole="User" />
+          <NavigationProperty Name="LessonToCourse" Relationship="OnSpotModel.FK_LessonToCourse_Course" FromRole="Course" ToRole="LessonToCourse" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="start" Type="Time" Precision="7" />
+          <Property Name="finish" Type="Time" Precision="7" />
+          <NavigationProperty Name="LessonToCourse" Relationship="OnSpotModel.FK_LessonToCourse_Lesson" FromRole="Lesson" ToRole="LessonToCourse" />
+        </EntityType>
+        <EntityType Name="LessonToCourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="LessonId" Type="Int32" />
+          <NavigationProperty Name="Course" Relationship="OnSpotModel.FK_LessonToCourse_Course" FromRole="LessonToCourse" ToRole="Course" />
+          <NavigationProperty Name="Lesson" Relationship="OnSpotModel.FK_LessonToCourse_Lesson" FromRole="LessonToCourse" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="StudentToCourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="OnSpotModel.FK_StudentToCourse_User" FromRole="StudentToCourse" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BDate" Type="DateTime" Precision="0" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="AllowingAccess" Type="Boolean" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Course" Relationship="OnSpotModel.FK_Course_User" FromRole="User" ToRole="Course" />
+          <NavigationProperty Name="StudentToCourse" Relationship="OnSpotModel.FK_StudentToCourse_User" FromRole="User" ToRole="StudentToCourse" />
+        </EntityType>
+        <Association Name="FK_Course_User">
+          <End Type="OnSpotModel.User" Role="User" Multiplicity="1" />
+          <End Type="OnSpotModel.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LessonToCourse_Course">
+          <End Type="OnSpotModel.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="OnSpotModel.LessonToCourse" Role="LessonToCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LessonToCourse">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LessonToCourse_Lesson">
+          <End Type="OnSpotModel.Lesson" Role="Lesson" Multiplicity="0..1" />
+          <End Type="OnSpotModel.LessonToCourse" Role="LessonToCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LessonToCourse">
+              <PropertyRef Name="LessonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentToCourse_User">
+          <End Type="OnSpotModel.User" Role="User" Multiplicity="1" />
+          <End Type="OnSpotModel.StudentToCourse" Role="StudentToCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentToCourse">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OnSpotModelStoreContainer" CdmEntityContainer="OnSpotEntities">
+          <EntitySetMapping Name="Attendency">
+            <EntityTypeMapping TypeName="OnSpotModel.Attendency">
+              <MappingFragment StoreEntitySet="Attendency">
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Exit" ColumnName="Exit" />
+                <ScalarProperty Name="Enter" ColumnName="Enter" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course">
+            <EntityTypeMapping TypeName="OnSpotModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="NumOfLessons" ColumnName="NumOfLessons" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lesson">
+            <EntityTypeMapping TypeName="OnSpotModel.Lesson">
+              <MappingFragment StoreEntitySet="Lesson">
+                <ScalarProperty Name="finish" ColumnName="finish" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LessonToCourse">
+            <EntityTypeMapping TypeName="OnSpotModel.LessonToCourse">
+              <MappingFragment StoreEntitySet="LessonToCourse">
+                <ScalarProperty Name="LessonId" ColumnName="LessonId" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentToCourse">
+            <EntityTypeMapping TypeName="OnSpotModel.StudentToCourse">
+              <MappingFragment StoreEntitySet="StudentToCourse">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="OnSpotModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="AllowingAccess" ColumnName="AllowingAccess" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="BDate" ColumnName="BDate" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

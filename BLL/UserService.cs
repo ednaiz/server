@@ -32,5 +32,9 @@ namespace BLL
         {
             return convertion.userCovertion.Covert(new DAL.model.userModel().Put(convertion.userCovertion.Covert(user)));
         }
+        public static UserDTOO Delete(UserDTOO user)
+        {
+            return convertion.userCovertion.Covert(new DAL.model.userModel().Delete(convertion.userCovertion.Covert(user)));
+        }
     }
 }

@@ -12,7 +12,8 @@ namespace BLL
       public static List<AttendancyDTO> get()
         {
             return convertion.userCovertion.Covert(new DAL.model.userModel().Get());
-        }public static AttendancyDTO get(int id)
+        }
+        public static AttendancyDTO get(int id)
         {
             return convertion.userCovertion.Covert(new DAL.model.userModel().Get(id));
         }

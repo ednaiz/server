@@ -12,12 +12,13 @@ namespace BLL
       public static List<LessonDTO> get()
         {
             return convertion.userCovertion.Covert(new DAL.model.userModel().Get());
-        }public static LessonDTO get(int id)
+        }
+        public static LessonDTO get(int id)
         {
             return convertion.userCovertion.Covert(new DAL.model.userModel().Get(id));
         }
 
-        public static LessonDTO get(string date string start, string finish)
+        public static LessonDTO get(string date ,string start, string finish)
         {
             return convertion.userCovertion.Covert(new DAL.model.userModel().Get(date,start,finish));
         }
@@ -31,7 +32,7 @@ namespace BLL
         }
         public static LessonDTO Delete(LessonDTO Lesson)
         {
-            return convertion.userCovertion.Covert(new DAL.model.userModel().Delete(convertion.userCovertion.Covert(Lesson)));
+           // return convertion.userCovertion.Covert(new DAL.model.userModel().Delete(convertion.userCovertion.Covert(Lesson)));
         }
     }
 }

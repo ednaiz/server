@@ -7,30 +7,28 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-   public class LessonService
+   public class CourseService
     {
       public static List<CourseDTO> get()
         {
-            return convertion.userCovertion.Covert(new DAL.model.userModel().Get());
-        }public static CourseDTO get(int id)
+            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Get());
+        }
+        public static CourseDTO get(int id)
         {
-            return convertion.userCovertion.Covert(new DAL.model.userModel().Get(id));
+            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Get(id));
         }
         public static CourseDTO get(string Name, int UserId, int NumOfLessons)
         {
-            return convertion.userCovertion.Covert(new DAL.model.userModel().Get(Name, UserId, NumOfLessons));
+            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Get(Name, UserId, NumOfLessons));
         }
         public static CourseDTO Post(CourseDTO course)
         {
-            return convertion.userCovertion.Covert(new DAL.model.userModel().Post(convertion.userCovertion.Covert(course)));
+            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Post(convertion.CourseConvertion.Covert(course)));
         }
         public static CourseDTO Put(CourseDTO course)
         {
-            return convertion.userCovertion.Covert(new DAL.model.userModel().Put(convertion.userCovertion.Covert(Lesson)));
+            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Put(convertion.CourseConvertion.Covert(course)));
         }
-        public static CourseDTO Delete(CourseDTO course)
-        {
-            return convertion.userCovertion.Covert(new DAL.model.userModel().Delete(convertion.userCovertion.Covert(course)));
-        }
+       
     }
 }

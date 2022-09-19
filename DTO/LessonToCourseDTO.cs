@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class LessonToCourse
+    public class LessonToCourseDTO
     {
         public int Id { get; set; }
         public int CourseId { get; set; }

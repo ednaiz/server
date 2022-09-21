@@ -41,14 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttendancyService.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="service\AttendancyService.cs" />
+    <Compile Include="convertion\AttendancyConversion.cs" />
     <Compile Include="convertion\CourseConvertion.cs" />
-    <Compile Include="convertion\userCovertion.cs" />
-    <Compile Include="CourseService.cs" />
-    <Compile Include="LessonService.cs" />
+    <Compile Include="convertion\LessonConversion.cs" />
+    <Compile Include="convertion\UserCovertion.cs" />
+    <Compile Include="service\CourseService.cs" />
+    <Compile Include="service\LessonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserService.cs" />
+    <Compile Include="service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

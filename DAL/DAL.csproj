@@ -53,7 +53,6 @@
     <Compile Include="Attendency.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Course.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -78,8 +77,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="model\AttendancyModel.cs" />
     <Compile Include="model\CourseModel.cs" />
-    <Compile Include="model\userModel.cs" />
+    <Compile Include="model\LessonModel.cs" />
+    <Compile Include="model\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentToCourse.cs">
       <DependentUpon>Model.tt</DependentUpon>

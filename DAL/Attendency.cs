@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Attendency
+    public partial class Attendancy
     {
         public string Id { get; set; }
         public string Enter { get; set; }

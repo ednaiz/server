@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace Server.Controllers
 {
-    public class CustomerController : ApiController
+    public class UserController : ApiController
     {
         public List<UserDTOO> Get()
         {

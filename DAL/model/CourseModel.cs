@@ -15,7 +15,6 @@ namespace DAL.model
                 return db.Course.ToList();
             }
         }
-
         public Course Get(string Name, int UserId, int NumOfLessons)
         {
             using (OnSpotEntities db = new OnSpotEntities())

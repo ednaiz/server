@@ -42,13 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttendancyDTO.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="CourseDTO.cs" />
     <Compile Include="LessonDTO.cs" />
     <Compile Include="LessonToCourseDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentToCourseDTO.cs" />
-    <Compile Include="UserDTOO.cs" />
+    <Compile Include="UserDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

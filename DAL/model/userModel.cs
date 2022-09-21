@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.model
 {
-    public class userModel
+    public class UserModel
     {
         public List<User> Get()
         {

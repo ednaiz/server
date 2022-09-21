@@ -10,6 +10,6 @@ namespace DTO
     {
         public int Id { get; set; }
         public int CourseId { get; set; }
-        public int LessonId {get; set; }
+        public int LessonId { get; set; }
     }
 }

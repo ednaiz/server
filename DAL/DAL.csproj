@@ -80,6 +80,8 @@
     <Compile Include="model\AttendancyModel.cs" />
     <Compile Include="model\CourseModel.cs" />
     <Compile Include="model\LessonModel.cs" />
+    <Compile Include="model\LessonToCourseModel.cs" />
+    <Compile Include="model\StudentToCourseModel.cs" />
     <Compile Include="model\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentToCourse.cs">

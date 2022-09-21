@@ -20,7 +20,11 @@ namespace BLL.convertion
                 Email = user.Email,
                 Id = user.Id,
                 FName = user.FName,
-                password = user.password,
+                LName = user.LName,
+                Address = user.Address,
+                BDate = user.BDate,
+                AllowingAccess = user.AllowingAccess,
+                Password = user.Password,
                 Phone = user.Phone,
                 Status = user.Status,
                 UserName = user.UserName
@@ -44,7 +48,7 @@ namespace BLL.convertion
                 Email = user.Email,
                 Id = user.Id,
                 FName = user.FName,
-                password = user.password,
+                Password = user.Password,
                 //Phone = user.Phone,
                 Status = user.Status,
                 UserName = user.UserName

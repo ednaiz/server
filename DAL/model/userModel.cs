@@ -49,7 +49,14 @@ namespace DAL.model
 
                 User findUser = db.User.FirstOrDefault(x => x.Id == user.Id);
                 findUser.FName = user.FName;
+                findUser.LName = user.LName;
                 findUser.Phone = user.Phone;
+                findUser.Email = user.Email;
+                findUser.Address = user.Address;
+                findUser.City = user.City;
+                findUser.BDate = user.BDate;
+                findUser.AllowingAccess = user.AllowingAccess;
+                findUser.Password = user.Password;
                 findUser.Status = user.Status;
                 findUser.UserName = user.UserName;
                 db.SaveChanges();

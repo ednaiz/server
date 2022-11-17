@@ -10,7 +10,7 @@ namespace BLL.convertion
 {
     public class AttendancyConversion
     {
-        public static AttendancyDTO Covert(Attendancy obj)
+        public static AttendancyDTO Convert(DAL.Attendancy obj)
         {
             if (obj == null)
                 return null;
@@ -19,7 +19,7 @@ namespace BLL.convertion
                 Id = obj.Id
             };
         }
-        public static Attendancy Covert(AttendancyDTO obj)
+        public static Attendancy Convert(AttendancyDTO obj)
         {
             if (obj == null)
                 return null;
@@ -28,16 +28,14 @@ namespace BLL.convertion
                 Id = obj.Id
             };
         }
-        public static List<Attendancy> Covert(List<AttendancyDTO> user)
+        public static List<Attendancy> Convert(List<AttendancyDTO> user)
         {
-            return user.Select(x => Covert(x)).ToList();
+            return user.Select(x => Convert(x)).ToList();
         }
-        public static List<AttendancyDTO> Covert(List<Attendancy> user)
+        public static List<AttendancyDTO> Convert(List<Attendancy> user)
         {
-            return user.Select(x => Covert(x)).ToList();
+            return user.Select(x => Convert(x)).ToList();
         }
     }
 }
 
-    }
-}

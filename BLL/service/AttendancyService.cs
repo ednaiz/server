@@ -12,24 +12,24 @@ namespace BLL
     {
       public static List<AttendancyDTO> get()
         {
-            return convertion.AttendancyService.Covert(new DAL.model.AttendancyModel().Get());
+            return convertion.AttendancyConversion.Convert(new DAL.model.AttendancyModel().Get());
         }
-        public static AttendancyDTO get(int id)
+        public static AttendancyDTO get(string id)
         {
-            return convertion.AttendancyConversion.Covert(new DAL.model.AttendancyModel().Get(id));
+            return convertion.AttendancyConversion.Convert(new DAL.model.AttendancyModel().Get(id));
         }
 
-        public static AttendancyDTO get(DateTime Exit,DateTime Enter,DateTime Date, int UserId, int CourseId)//change properties
+        public static AttendancyDTO get(string Exit,string Enter,string Date, string UserId, string CourseId)//change properties
         {
-            return convertion.AttendancyCovertion.Covert(new DAL.model.AttendancyModel().Get( Exit,Enter, Date,  UserId,  CourseId));
+            return convertion.AttendancyConversion.Convert(new DAL.model.AttendancyModel().Get( Exit,Enter, Date,  UserId,  CourseId));
         }
         public static AttendancyDTO Post(AttendancyDTO Attendancy)
         {
-            return convertion.AttendancyConversion.Covert(new DAL.model.AttendancyModel().Post(convertion.AttendancyConversion.Covert(Attendancy)));
+            return convertion.AttendancyConversion.Convert(new DAL.model.AttendancyModel().Post(convertion.AttendancyConversion.Convert(Attendancy)));
         }
         public static AttendancyDTO Put(AttendancyDTO Attendancy)
         {
-            return convertion.UserCovertion.Covert(new DAL.model.UserModel().Put(convertion.UserCovertion.Covert(Attendancy)));
+            return convertion.AttendancyConversion.Convert(new DAL.model.AttendancyModel().Put(convertion.AttendancyConversion.Convert(Attendancy)));
         }
     }
 }

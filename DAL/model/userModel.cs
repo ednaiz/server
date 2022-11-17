@@ -28,7 +28,7 @@ namespace DAL.model
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.User.FirstOrDefault(x => x.UserName == userName&&x.password==password);
+                return db.User.FirstOrDefault(x => x.UserName == userName&&x.Password==password);
             }
         }
 

@@ -9,29 +9,35 @@ namespace BLL.convertion
 {
     public class StudentToCourseCovertion
     {
-        public static StudentToCourseDTO Covert(StudentToCourse student)
+        public static StudentToCourseDTO Convert(StudentToCourse student)
         {
             if (student == null)
                 return null;
             return new StudentToCourseDTO()
-            { CourseId = student.CourseId, UserId = student.UserId };
+            { 
+                CourseId = student.CourseId, 
+                UserId = student.UserId
+            };
 
         }
-    }
-    public static List<StudentToCourseDTO> Covert(List<StudentToCourse> student)
-    {
-        return student.Select(x => Covert(x)).ToList();
-    }
-    public static List<StudentToCourse> Covert(List<StudentToCourseDTO> student)
-    {
-        return student.Select(x => Covert(x)).ToList();
-    }
-    public static StudentToCourse Convert(StudentToCourseDTO student)
-    {
-        if (student == null)
-            return null;
-        return new StudentToCourse()
+
+        public static List<StudentToCourseDTO> Convert(List<StudentToCourse> student)
         {
-            CourseId = student.CourseId,
-            UserId = student.UserId
-        };
+            return student.Select(x => Convert(x)).ToList();
+        }
+        public static List<StudentToCourse> Convert(List<StudentToCourseDTO> student)
+        {
+            return student.Select(x => Convert(x)).ToList();
+        }
+        public static StudentToCourse Convert(StudentToCourseDTO student)
+        {
+            if (student == null)
+                return null;
+            return new StudentToCourse()
+            {
+                CourseId = student.CourseId,
+                UserId = student.UserId
+            };
+        }
+    }
+}

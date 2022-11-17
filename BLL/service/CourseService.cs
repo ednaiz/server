@@ -11,23 +11,23 @@ namespace BLL
     {
       public static List<CourseDTO> get()
         {
-            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Get());
+            return convertion.CourseConvertion.Convert(new DAL.model.CourseModel().Get());
         }
         public static CourseDTO get(int id)
         {
-            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Get(id));
+            return convertion.CourseConvertion.Convert(new DAL.model.CourseModel().Get(id));
         }
         public static CourseDTO get(string Name, int UserId, int NumOfLessons)
         {
-            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Get(Name, UserId, NumOfLessons));
+            return convertion.CourseConvertion.Convert(new DAL.model.CourseModel().Get(Name, UserId, NumOfLessons));
         }
         public static CourseDTO Post(CourseDTO course)
         {
-            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Post(convertion.CourseConvertion.Covert(course)));
+            return convertion.CourseConvertion.Convert(new DAL.model.CourseModel().Post(convertion.CourseConvertion.Convert(course)));
         }
         public static CourseDTO Put(CourseDTO course)
         {
-            return convertion.CourseConvertion.Covert(new DAL.model.CourseModel().Put(convertion.CourseConvertion.Covert(course)));
+            return convertion.CourseConvertion.Convert(new DAL.model.CourseModel().Put(convertion.CourseConvertion.Convert(course)));
         }
        
     }

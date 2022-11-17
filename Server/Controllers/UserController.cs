@@ -11,27 +11,27 @@ namespace Server.Controllers
 {
     public class UserController : ApiController
     {
-        public List<UserDTOO> Get()
+        public List<UserDTO> Get()
         {
             return  UserService.get();
         }
 
-        public UserDTOO Get(int id)
+        public UserDTO Get(int id)
         {
             return UserService.get(id);
         }
 
-        public UserDTOO Get(string userName,string password)
+        public UserDTO Get(string userName,string password)
         {
             return UserService.get(userName,password);
         }
         [HttpPost]
-        public UserDTOO Post(UserDTOO user)
+        public UserDTO Post(UserDTO user)
         {
             return UserService.Post(user);
         }
         [HttpPut]
-        public UserDTOO Put(UserDTOO user)
+        public UserDTO Put(UserDTO user)
         {
             return UserService.Put(user);
         }

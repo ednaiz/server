@@ -9,7 +9,8 @@ namespace DTO
     public class LessonToCourseDTO
     {
         public int Id { get; set; }
-        public int CourseId { get; set; }
-        public int LessonId { get; set; }
+        public Nullable<int> CourseId { get; set; }
+        public Nullable<int> LessonId { get; set; }
+
     }
 }

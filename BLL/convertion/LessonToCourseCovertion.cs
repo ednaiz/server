@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,33 +8,38 @@ using System.Threading.Tasks;
 
 namespace BLL.convertion
 {
-     public class LessonToCourseCovertion
+    public class LessonToCourseCovertion
     {
-        public static LessonToCourseDTO Covert(LessonToCourse Lesson)
+        public static LessonToCourseDTO Convert(LessonToCourse Lesson)
         {
             if (Lesson == null)
                 return null;
             return new LessonToCourseDTO()
-            { CourseId = Lesson.CourseId, LessonId = Lesson.LessonId };
+            {
+                CourseId = Lesson.CourseId,
+                LessonId = Lesson.LessonId
+            };
 
         }
-    }
-    public static List<LessonToCourseDTO> Covert(List<LessonToCourse> Lesson)
-    {
-        return Lesson.Select(x => Covert(x)).ToList();
-    }
-    public static List<LessonToCourse> Covert(List<LessonToCourseDTO> Lesson)
-    {
-        return Lesson.Select(x => Covert(x)).ToList();
-    }
-    public static LessonToCourse Convert(LessonToCourseDTO Lesson)
-    {
-        if (Lesson == null)
-            return null;
-        return new LessonToCourse()
+
+        public static List<LessonToCourseDTO> Convert(List<LessonToCourse> Lesson)
         {
-            CourseId = Lesson.CourseId,
-            LessonId = Lesson.LessonId
-        };
+            return Lesson.Select(x => Convert(x)).ToList();
+        }
+        public static List<LessonToCourse> Convert(List<LessonToCourseDTO> Lesson)
+        {
+            return Lesson.Select(x => Convert(x)).ToList();
+        }
+        public static LessonToCourse Convert(LessonToCourseDTO Lesson)
+        {
+            if (Lesson == null)
+                return null;
+            return new LessonToCourse()
+            {
+                CourseId = Lesson.CourseId,
+                LessonId = Lesson.LessonId,
+                Id = Lesson.Id
+            };
+        }
     }
 }

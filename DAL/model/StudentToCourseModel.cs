@@ -27,7 +27,7 @@ namespace DAL.model
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.StudentToCourse.FirstOrDefault(x => x.CourseId == CourseId && x.LessonId == LessonId);
+                return db.StudentToCourse.FirstOrDefault(x => x.CourseId == CourseId && x.CourseId == LessonId);
             }
         }
 

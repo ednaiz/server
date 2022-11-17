@@ -11,24 +11,24 @@ namespace BLL
     {
       public static List<LessonDTO> get()
         {
-            return convertion.LessonCovertion.Covert(new DAL.model.LessonModel().Get());
+            return convertion.LessonConversion.Convert(new DAL.model.LessonModel().Get());
         }
         public static LessonDTO get(int id)
         {
-            return convertion.LessonCovertion.Covert(new DAL.model.LessonModel().Get(id));
+            return convertion.LessonConversion.Convert(new DAL.model.LessonModel().Get(id));
         }
 
-        public static LessonDTO get(string date ,string start, string finish)
+        public static LessonDTO get(string date ,string start, DateTime finish)
         {
-            return convertion.LessonCovertion.Covert(new DAL.model.LessonModel().Get(date,start,finish));
+            return convertion.LessonConversion.Convert(new DAL.model.LessonModel().Get(date,start,finish));
         }
         public static LessonDTO Post(LessonDTO Lesson)
         {
-            return convertion.LessonCovertion.Covert(new DAL.model.LessonModel().Post(convertion.LessonCovertion.Covert(Lesson)));
+            return convertion.LessonConversion.Convert(new DAL.model.LessonModel().Post(convertion.LessonConversion.Convert(Lesson)));
         }
         public static LessonDTO Put(LessonDTO Lesson)
         {
-            return convertion.LessonCovertion.Covert(new DAL.model.LessonModel().Put(convertion.LessonCovertion.Covert(Lesson)));
+            return convertion.LessonConversion.Convert(new DAL.model.LessonModel().Put(convertion.LessonConversion.Convert(Lesson)));
         }
 
 

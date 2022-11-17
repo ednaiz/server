@@ -10,7 +10,7 @@ namespace BLL.convertion
 {
    public class CourseConvertion
     {
-        public static CourseDTO Covert(Course obj)
+        public static CourseDTO Convert(Course obj)
         {
             if (obj == null)
                 return null;
@@ -19,7 +19,7 @@ namespace BLL.convertion
                 Id=obj.Id
             };
         }
-        public static Course Covert(CourseDTO obj)
+        public static Course Convert(CourseDTO obj)
         {
             if (obj == null)
                 return null;
@@ -28,13 +28,13 @@ namespace BLL.convertion
                 Id = obj.Id
             };
         }
-        public static List<Course> Covert(List<CourseDTO> user)
+        public static List<Course> Convert(List<CourseDTO> user)
         {
-            return user.Select(x => Covert(x)).ToList();
+            return user.Select(x => Convert(x)).ToList();
         }
-        public static List<CourseDTO> Covert(List<Course> user)
+        public static List<CourseDTO> Convert(List<Course> user)
         {
-            return user.Select(x => Covert(x)).ToList();
+            return user.Select(x => Convert(x)).ToList();
         }
     }
 }

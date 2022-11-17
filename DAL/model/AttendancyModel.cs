@@ -15,7 +15,7 @@ namespace DAL.model
                 return db.Attendancy.ToList();
             }
         }
-        public Attendancy Get(DateTime Exit,DateTime Enter, DateTime Date, int UserId, int CourseId)
+        public Attendancy Get(string Exit,string Enter, string Date, string UserId, string CourseId)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
@@ -23,11 +23,11 @@ namespace DAL.model
 
             }
         }
-        public Attendancy Get(int Id)
+        public Attendancy Get(string Id)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.Course.FirstOrDefault(x => x.Id == Id);
+                return db.Attendancy.FirstOrDefault(x => x.Id == Id);
             }
 
         }

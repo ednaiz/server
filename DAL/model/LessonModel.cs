@@ -8,7 +8,7 @@ namespace DAL.model
 {
     public class LessonModel
     {
-        public List<Lesson> Get(DateTime date, string start)
+        public List<Lesson> Get()
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
@@ -19,7 +19,7 @@ namespace DAL.model
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.Lesson.FirstOrDefault(x => x.Start == Start && Finish == x.Finish && x.Date == Date);
+                return db.Lesson.FirstOrDefault(x => x.start.ToString() == Start && Finish == x.finish.ToString() && x.date == Date);
             }
         }
         public Lesson Get(int id)

@@ -10,26 +10,26 @@ namespace BLL.service
 {
      public class StudentToCourseService
     {
-        public static List<Lesson> get()
+        public static List<StudentToCourseDTO> get()
         {
-            return convertion.StudentToCourseCovertion.Covert(new DAL.model.StudentToCourseModel().Get());
+            return convertion.StudentToCourseCovertion.Convert(new DAL.model.StudentToCourseModel().Get());
         }
         public static StudentToCourseDTO get(int id)
         {
-            return convertion.StudentToCourseCovertion.Covert(new DAL.model.StudentToCourseModel().Get(id));
+            return convertion.StudentToCourseCovertion.Convert(new DAL.model.StudentToCourseModel().Get(id));
         }
         public static StudentToCourseDTO get(int CourseId, int UserId)
         {
-            return convertion.StudentToCourseCovertion.Covert(new DAL.model.StudentToCourseModel().Get(CourseId, UserId));
+            return convertion.StudentToCourseCovertion.Convert(new DAL.model.StudentToCourseModel().Get(CourseId, UserId));
         }
 
         public static StudentToCourseDTO Post(StudentToCourseDTO StudentToCourse)
         {
-            return convertion.StudentToCourseCovertion.Covert(new DAL.model.StudentToCourseModel().Post(convertion.StudentToCourseCovertion.Covert(StudentToCourse)));
+            return convertion.StudentToCourseCovertion.Convert(new DAL.model.StudentToCourseModel().Post(convertion.StudentToCourseCovertion.Convert(StudentToCourse)));
         }
         public static StudentToCourseDTO Put(StudentToCourseDTO StudentToCourse)
         {
-            return convertion.StudentToCourseCovertion.Covert(new DAL.model.StudentToCourseModel().Put(convertion.StudentToCourseCovertion.Covert(StudentToCourse)));
+            return convertion.StudentToCourseCovertion.Convert(new DAL.model.StudentToCourseModel().Put(convertion.StudentToCourseCovertion.Convert(StudentToCourse)));
         }
     }
 }

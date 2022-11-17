@@ -10,7 +10,7 @@ namespace BLL.convertion
 {
    public class UserCovertion
     {
-        public static UserDTO Covert(User user)
+        public static UserDTO Convert(User user)
         {
             if (user == null)
                 return null;
@@ -30,15 +30,15 @@ namespace BLL.convertion
                 UserName = user.UserName
             };
         }
-        public static List<UserDTO> Covert(List<User> user)
+        public static List<UserDTO> Convert(List<User> user)
         {
-            return user.Select(x => Covert(x)).ToList();
+            return user.Select(x => Convert(x)).ToList();
         }
-        public static List<User> Covert(List<UserDTO> user)
+        public static List<User> Convert(List<UserDTO> user)
         {
-            return user.Select(x => Covert(x)).ToList();
+            return user.Select(x => Convert(x)).ToList();
         }
-        public static User Covert(UserDTO user)
+        public static User Convert(UserDTO user)
         {
             if (user == null)
                 return null;

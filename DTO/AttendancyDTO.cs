@@ -8,9 +8,9 @@ using DTO;
 
 namespace DTO
 {
-     public class Attendancy
+    public class AttendancyDTO
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public DateTime Enter { get; set; }
         public DateTime Exit { get; set; }
         public DateTime Date { get; set; }

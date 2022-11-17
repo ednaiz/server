@@ -40,6 +40,41 @@ namespace DAL.model
                 return Attendancy;
             }
         }
+        public Attendancy PostExit(Attendancy Attendancy)
+        {
+            using (OnSpotEntities db = new OnSpotEntities())
+            {
+                Attendancy ad= db.Attendancy.FirstOrDefault(x => x.UserId == Attendancy.UserId && x.Date == Attendancy.Date);
+
+                if (ad == null)
+                {
+                    return null;
+
+                }
+                ad.Exit = Attendancy.Exit;
+                db.SaveChanges();
+                return Attendancy;
+            }
+        }
+        public void Post(List< Attendancy> Attendancies)
+        {
+            using (OnSpotEntities db = new OnSpotEntities())
+            {
+                Attendancies.ForEach(Attendancy =>
+                {
+                    Attendancy ad = db.Attendancy.FirstOrDefault(x => x.UserId == Attendancy.UserId && x.Date == Attendancy.Date);
+
+                    if (ad != null)
+                    {
+                      
+                    //ad.Exit = Attendancy.;
+                    }
+                    
+                });
+                db.SaveChanges();
+                
+            }
+        }
         public Attendancy Put(Attendancy Attendancy)
         {
             using (OnSpotEntities db = new OnSpotEntities())

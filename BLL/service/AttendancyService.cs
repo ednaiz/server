@@ -27,6 +27,16 @@ namespace BLL
         {
             return convertion.AttendancyConversion.Convert(new DAL.model.AttendancyModel().Post(convertion.AttendancyConversion.Convert(Attendancy)));
         }
+        public static AttendancyDTO Post(AttendancyExitDTO Attendancy)
+        {
+            return convertion.AttendancyConversion.Convert(new DAL.model.AttendancyModel().PostExit(convertion.AttendancyConversion.Convert(Attendancy)));
+
+        }
+        public static void Post(List<AttendancyActiveDTO> Attendancy)
+        {
+            return convertion.AttendancyConversion.Convert(new DAL.model.AttendancyModel().PostExit(convertion.AttendancyConversion.Convert(Attendancy)));
+
+        }
         public static AttendancyDTO Put(AttendancyDTO Attendancy)
         {
             return convertion.AttendancyConversion.Convert(new DAL.model.AttendancyModel().Put(convertion.AttendancyConversion.Convert(Attendancy)));

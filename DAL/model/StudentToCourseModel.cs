@@ -31,13 +31,13 @@ namespace DAL.model
             }
         }
 
-        public StudentToCourse Post(StudentToCourse StudentToCourse)
+        public void Post(List< StudentToCourse> StudentToCourse)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                db.StudentToCourse.Add(StudentToCourse);
+                db.StudentToCourse.AddRange(StudentToCourse);
                 db.SaveChanges();
-                return StudentToCourse;
+                
             }
         }
         public StudentToCourse Put(StudentToCourse StudentToCourse)

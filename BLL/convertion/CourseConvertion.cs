@@ -16,7 +16,10 @@ namespace BLL.convertion
                 return null;
             return new CourseDTO()
             {
-                Id=obj.Id
+                Id=obj.Id,
+                Name=obj.Name,
+                NumOfLessons=obj.NumOfLessons,
+                UserId=obj.UserId
             };
         }
         public static Course Convert(CourseDTO obj)
@@ -25,7 +28,10 @@ namespace BLL.convertion
                 return null;
             return new Course()
             {
-                Id = obj.Id
+                Id = obj.Id,
+                Name = obj.Name,
+                NumOfLessons = obj.NumOfLessons,
+                UserId = obj.UserId
             };
         }
         public static List<Course> Convert(List<CourseDTO> user)

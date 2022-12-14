@@ -8,61 +8,61 @@ namespace DAL.model
 {
     public class AttendancyModel
     {
-        public List<Attendancy> Get()
+        public List<attendancy> Get()
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.Attendancy.ToList();
+                return db.attendancy.ToList();
             }
         }
-        public Attendancy Get(string Exit,string Enter, string Date, string UserId, string CourseId)
+        public attendancy Get(TimeSpan Exit,TimeSpan Enter, DateTime Date, int UserId, int LessonId)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.Attendancy.FirstOrDefault(x => x.UserId == UserId && Exit == x.Exit &&x.Enter==Enter&& x.Date == Date && x.CourseId == CourseId);
+                return db.attendancy.FirstOrDefault(x => x.UserId == UserId && Exit == x.ExitTime &&x.EnterTime==Enter&& x.Date == Date && x.LessonId == LessonId);
 
             }
         }
-        public Attendancy Get(string Id)
+        public attendancy Get(int Id)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.Attendancy.FirstOrDefault(x => x.Id == Id);
+                return db.attendancy.FirstOrDefault(x => x.Id == Id);
             }
 
         }
-        public Attendancy Post(Attendancy Attendancy)
+        public attendancy Post(attendancy Attendancy)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                Attendancy = db.Attendancy.Add(Attendancy);
+                Attendancy = db.attendancy.Add(Attendancy);
                 db.SaveChanges();
                 return Attendancy;
             }
         }
-        public Attendancy PostExit(Attendancy Attendancy)
+        public attendancy PostExit(attendancy Attendancy)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                Attendancy ad= db.Attendancy.FirstOrDefault(x => x.UserId == Attendancy.UserId && x.Date == Attendancy.Date);
+                attendancy ad= db.attendancy.FirstOrDefault(x => x.UserId == Attendancy.UserId && x.Date == Attendancy.Date);
 
                 if (ad == null)
                 {
                     return null;
 
                 }
-                ad.Exit = Attendancy.Exit;
+                ad.ExitTime = Attendancy.ExitTime;
                 db.SaveChanges();
                 return Attendancy;
             }
         }
-        public void Post(List< Attendancy> Attendancies)
+        public void Post(List< attendancy> Attendancies)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
                 Attendancies.ForEach(Attendancy =>
                 {
-                    Attendancy ad = db.Attendancy.FirstOrDefault(x => x.UserId == Attendancy.UserId && x.Date == Attendancy.Date);
+                    attendancy ad = db.attendancy.FirstOrDefault(x => x.UserId == Attendancy.UserId && x.Date == Attendancy.Date);
 
                     if (ad != null)
                     {
@@ -75,14 +75,14 @@ namespace DAL.model
                 
             }
         }
-        public Attendancy Put(Attendancy Attendancy)
+        public attendancy Put(attendancy Attendancy)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                Attendancy findAttendancy = db.Attendancy.FirstOrDefault(x => x.Id == Attendancy.Id);
-                findAttendancy.CourseId = Attendancy.CourseId;
-                findAttendancy.Exit = Attendancy.Exit;
-                findAttendancy.Enter = Attendancy.Enter;
+                attendancy findAttendancy = db.attendancy.FirstOrDefault(x => x.Id == Attendancy.Id);
+                findAttendancy.LessonId = Attendancy.LessonId;
+                findAttendancy.ExitTime = Attendancy.ExitTime;
+                findAttendancy.EnterTime = Attendancy.EnterTime;
                 findAttendancy.Date = Attendancy.Date;
                 findAttendancy.UserId = Attendancy.UserId;
                 db.SaveChanges();

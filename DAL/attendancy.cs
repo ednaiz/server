@@ -12,12 +12,17 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentToCourse
+    public partial class attendancy
     {
-        public int UserId { get; set; }
-        public int CourseId { get; set; }
         public int Id { get; set; }
+        public System.TimeSpan EnterTime { get; set; }
+        public Nullable<System.TimeSpan> ExitTime { get; set; }
+        public System.DateTime Date { get; set; }
+        public int UserId { get; set; }
+        public Nullable<int> LessonId { get; set; }
+        public Nullable<byte> Active { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual lesson lesson { get; set; }
+        public virtual user user { get; set; }
     }
 }

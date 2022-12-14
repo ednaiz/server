@@ -8,46 +8,46 @@ namespace DAL.model
 {
     public class StudentToCourseModel
     {
-        public List<StudentToCourse> Get()
+        public List<student_to_course> Get()
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.StudentToCourse.ToList();
+                return db.student_to_course.ToList();
             }
         }
 
-        public StudentToCourse Get(int id)
+        public student_to_course Get(int id)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.StudentToCourse.FirstOrDefault(x => x.Id == id);
+                return db.student_to_course.FirstOrDefault(x => x.Id == id);
             }
         }
-        public StudentToCourse Get(int CourseId, int LessonId)
+        public student_to_course Get(int CourseId, int LessonId)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.StudentToCourse.FirstOrDefault(x => x.CourseId == CourseId && x.CourseId == LessonId);
+                return db.student_to_course.FirstOrDefault(x => x.CourseId == CourseId && x.CourseId == LessonId);
             }
         }
 
-        public void Post(List< StudentToCourse> StudentToCourse)
+        public void Post(List< student_to_course> student_to_course)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                db.StudentToCourse.AddRange(StudentToCourse);
+                db.student_to_course.AddRange(student_to_course);
                 db.SaveChanges();
                 
             }
         }
-        public StudentToCourse Put(StudentToCourse StudentToCourse)
+        public student_to_course Put(student_to_course student_to_course)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
 
-                StudentToCourse findStudentToCourse = db.StudentToCourse.FirstOrDefault(x => x.Id == StudentToCourse.Id);
-                findStudentToCourse.CourseId = StudentToCourse.CourseId;
-                findStudentToCourse.UserId = StudentToCourse.UserId;
+                student_to_course findStudentToCourse = db.student_to_course.FirstOrDefault(x => x.Id == student_to_course.Id);
+                findStudentToCourse.CourseId = student_to_course.CourseId;
+                findStudentToCourse.UserId = student_to_course.UserId;
                 db.SaveChanges();
                 return findStudentToCourse;
             }

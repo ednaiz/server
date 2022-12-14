@@ -18,7 +18,7 @@ namespace BLL
             return convertion.LessonConversion.Convert(new DAL.model.LessonModel().Get(id));
         }
 
-        public static LessonDTO get(string date ,string start, DateTime finish)
+        public static LessonDTO get(TimeSpan date ,TimeSpan start, DateTime finish)
         {
             return convertion.LessonConversion.Convert(new DAL.model.LessonModel().Get(date,start,finish));
         }

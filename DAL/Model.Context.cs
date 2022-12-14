@@ -6,6 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 namespace DAL
 {
     using System;
@@ -24,11 +25,10 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Attendancy> Attendancy { get; set; }
-        public virtual DbSet<Course> Course { get; set; }
-        public virtual DbSet<Lesson> Lesson { get; set; }
-        public virtual DbSet<LessonToCourse> LessonToCourse { get; set; }
-        public virtual DbSet<StudentToCourse> StudentToCourse { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<attendancy> attendancy { get; set; }
+        public virtual DbSet<course> course { get; set; }
+        public virtual DbSet<lesson> lesson { get; set; }
+        public virtual DbSet<student_to_course> student_to_course { get; set; }
+        public virtual DbSet<user> user { get; set; }
     }
 }

@@ -12,13 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Attendancy
+    public partial class student_to_course
     {
-        public string Id { get; set; }
-        public string Enter { get; set; }
-        public string Exit { get; set; }
-        public string Date { get; set; }
-        public string UserId { get; set; }
-        public string CourseId { get; set; }
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int CourseId { get; set; }
+    
+        public virtual course course { get; set; }
+        public virtual user user { get; set; }
     }
 }

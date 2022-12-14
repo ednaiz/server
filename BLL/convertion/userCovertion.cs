@@ -8,49 +8,45 @@ using System.Threading.Tasks;
 
 namespace BLL.convertion
 {
-   public class UserCovertion
+    public class UserCovertion
     {
-        public static UserDTO Convert(User user)
+        public static UserDTO Convert(user user)
         {
             if (user == null)
                 return null;
             return new UserDTO()
             {
-                City = user.City,
                 Email = user.Email,
                 Id = user.Id,
-                FName = user.FName,
-                LName = user.LName,
-                Address = user.Address,
-                BDate = user.BDate,
-                AllowingAccess = user.AllowingAccess,
+                Active = user.Active,
+                Name = user.Name,
+                Type = user.Type,
                 Password = user.Password,
                 Phone = user.Phone,
-                Status = user.Status,
                 UserName = user.UserName
             };
         }
-        public static List<UserDTO> Convert(List<User> user)
+        public static List<UserDTO> Convert(List<user> user)
         {
             return user.Select(x => Convert(x)).ToList();
         }
-        public static List<User> Convert(List<UserDTO> user)
+        public static List<user> Convert(List<UserDTO> user)
         {
             return user.Select(x => Convert(x)).ToList();
         }
-        public static User Convert(UserDTO user)
+        public static user Convert(UserDTO user)
         {
             if (user == null)
                 return null;
-            return new User()
+            return new user()
             {
-                City = user.City,
                 Email = user.Email,
                 Id = user.Id,
-                FName = user.FName,
+                Active = user.Active,
+                Name = user.Name,
+                Type = user.Type,
                 Password = user.Password,
-                //Phone = user.Phone,
-                Status = user.Status,
+                Phone = user.Phone,
                 UserName = user.UserName
             };
         }

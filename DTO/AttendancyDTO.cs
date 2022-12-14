@@ -10,26 +10,26 @@ namespace DTO
 {
     public class AttendancyDTO
     {
-        public string Id { get; set; }
-        public string Enter { get; set; }
-        public string Exit { get; set; }
-        public string Date { get; set; }
-        public string UserId { get; set; }
-        public string CourseId { get; set; }
-        public bool Active { get; set; }
+        public int Id { get; set; }
+        public System.TimeSpan EnterTime { get; set; }
+        public Nullable<System.TimeSpan> ExitTime { get; set; }
+        public System.DateTime Date { get; set; }
+        public int UserId { get; set; }
+        public Nullable<int> LessonId { get; set; }
+        public Nullable<byte> Active { get; set; }
     }
     public class AttendancyActiveDTO
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public bool Active { get; set; }
 
     }
     public class AttendancyExitDTO
     {
-        public string Exit { get; set; }
-        public string Date { get; set; }
-        public string UserId { get; set; }
-        public string CourseId { get; set; }
+        public TimeSpan ExitTime { get; set; }
+        public DateTime Date { get; set; }
+        public int UserId { get; set; }
+        public int LessonId { get; set; }
 
     }
 }

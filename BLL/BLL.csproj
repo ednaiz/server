@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="convertion\LessonToCourseCovertion.cs" />
     <Compile Include="convertion\StudentToCourseCovertion.cs" />
     <Compile Include="service\AttendancyService.cs" />
     <Compile Include="convertion\AttendancyConvertion.cs" />
@@ -51,7 +50,6 @@
     <Compile Include="service\CourseService.cs" />
     <Compile Include="service\LessonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="service\LessonToCourseService.cs" />
     <Compile Include="service\StudentToCourseService.cs" />
     <Compile Include="service\UserService.cs" />
   </ItemGroup>

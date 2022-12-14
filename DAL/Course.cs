@@ -12,21 +12,23 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Course
+    public partial class course
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Course()
+        public course()
         {
-            this.LessonToCourse = new HashSet<LessonToCourse>();
+            this.lesson = new HashSet<lesson>();
+            this.student_to_course = new HashSet<student_to_course>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public int UserId { get; set; }
-        public int NumOfLessons { get; set; }
+        public int TeacherId { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LessonToCourse> LessonToCourse { get; set; }
+        public virtual ICollection<lesson> lesson { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<student_to_course> student_to_course { get; set; }
     }
 }

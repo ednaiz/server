@@ -10,7 +10,7 @@ namespace BLL.convertion
 {
    public class CourseConvertion
     {
-        public static CourseDTO Convert(Course obj)
+        public static CourseDTO Convert(course obj)
         {
             if (obj == null)
                 return null;
@@ -18,27 +18,26 @@ namespace BLL.convertion
             {
                 Id=obj.Id,
                 Name=obj.Name,
-                NumOfLessons=obj.NumOfLessons,
-                UserId=obj.UserId
+                TeacherId=obj.TeacherId,
+                
             };
         }
-        public static Course Convert(CourseDTO obj)
+        public static course Convert(CourseDTO obj)
         {
             if (obj == null)
                 return null;
-            return new Course()
+            return new course()
             {
                 Id = obj.Id,
                 Name = obj.Name,
-                NumOfLessons = obj.NumOfLessons,
-                UserId = obj.UserId
+                TeacherId = obj.TeacherId,
             };
         }
-        public static List<Course> Convert(List<CourseDTO> user)
+        public static List<course> Convert(List<CourseDTO> user)
         {
             return user.Select(x => Convert(x)).ToList();
         }
-        public static List<CourseDTO> Convert(List<Course> user)
+        public static List<CourseDTO> Convert(List<course> user)
         {
             return user.Select(x => Convert(x)).ToList();
         }

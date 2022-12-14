@@ -44,7 +44,6 @@
     <Compile Include="AttendancyDTO.cs" />
     <Compile Include="CourseDTO.cs" />
     <Compile Include="LessonDTO.cs" />
-    <Compile Include="LessonToCourseDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentToCourseDTO.cs" />
     <Compile Include="UserDTO.cs" />

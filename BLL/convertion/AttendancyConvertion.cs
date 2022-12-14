@@ -10,64 +10,69 @@ namespace BLL.convertion
 {
     public class AttendancyConversion
     {
-        public static AttendancyDTO Convert(DAL.Attendancy obj)
+        public static AttendancyDTO Convert(DAL.attendancy obj)
         {
             if (obj == null)
                 return null;
             return new AttendancyDTO()
             {
                 Id = obj.Id,
-
-
-                CourseId = obj.CourseId,
-
-            };
-        }
-        public static Attendancy Convert(AttendancyExitDTO obj)
-        {
-            if (obj == null)
-                return null;
-            return new Attendancy()
-            {
-                UserId=obj.UserId,
-                CourseId=obj.CourseId,
+                Active=obj.Active,
                 Date=obj.Date,
-                Exit=obj.Exit
+                EnterTime=obj.EnterTime,
+                ExitTime=obj.ExitTime,
+                LessonId=obj.LessonId,
+                UserId=obj.UserId
+            };
+        }
+        public static attendancy Convert(AttendancyExitDTO obj)
+        {
+            if (obj == null)
+                return null;
+            return new attendancy()
+            {
+                Date = obj.Date,
+                ExitTime = obj.ExitTime,
+                LessonId = obj.LessonId,
+                UserId = obj.UserId
 
 
             };
         }
-        public static Attendancy Convert(AttendancyActiveDTO obj)
+        public static attendancy Convert(AttendancyActiveDTO obj)
         {
             if (obj == null)
                 return null;
-            return new Attendancy()
+            return new attendancy()
             {
                 Id = obj.Id,
-               // ac = obj.Active,
-             
-
-
+               // Active=obj.Active      
             };
         }
-        public static Attendancy Convert(AttendancyDTO obj)
+        public static attendancy Convert(AttendancyDTO obj)
         {
             if (obj == null)
                 return null;
-            return new Attendancy()
+            return new attendancy()
             {
-                Id = obj.Id
+                Id = obj.Id,
+                Active = obj.Active,
+                Date = obj.Date,
+                EnterTime = obj.EnterTime,
+                ExitTime = obj.ExitTime,
+                LessonId = obj.LessonId,
+                UserId = obj.UserId
             };
         }
-        public static List<Attendancy> Convert(List<AttendancyActiveDTO> user)
+        public static List<attendancy> Convert(List<AttendancyActiveDTO> user)
         {
             return user.Select(x => Convert(x)).ToList();
         }
-        public static List<Attendancy> Convert(List<AttendancyDTO> user)
+        public static List<attendancy> Convert(List<AttendancyDTO> user)
         {
             return user.Select(x => Convert(x)).ToList();
         }
-        public static List<AttendancyDTO> Convert(List<Attendancy> user)
+        public static List<AttendancyDTO> Convert(List<attendancy> user)
         {
             return user.Select(x => Convert(x)).ToList();
         }

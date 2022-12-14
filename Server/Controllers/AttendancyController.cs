@@ -23,7 +23,7 @@ namespace Server.Controllers
             return Ok();
         }
         [Route("~/api/Attendancy/Active")]
-        public IHttpActionResult Post(List< AttendancyActiveDTO> attendancy)
+        public IHttpActionResult Post( AttendancyActiveDTO attendancy)
         {
             BLL.AttendancyService.Post(attendancy);
             return Ok();

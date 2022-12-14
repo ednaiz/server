@@ -12,31 +12,30 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class user
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public user()
         {
-            this.Course = new HashSet<Course>();
-            this.StudentToCourse = new HashSet<StudentToCourse>();
+            this.attendancy = new HashSet<attendancy>();
+            this.course = new HashSet<course>();
+            this.student_to_course = new HashSet<student_to_course>();
         }
     
         public int Id { get; set; }
-        public string FName { get; set; }
-        public string LName { get; set; }
-        public Nullable<int> Phone { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public Nullable<System.DateTime> BDate { get; set; }
-        public string UserName { get; set; }
-        public Nullable<bool> Status { get; set; }
-        public Nullable<bool> AllowingAccess { get; set; }
+        public int Type { get; set; }
+        public Nullable<byte> Active { get; set; }
         public string Password { get; set; }
+        public string UserName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Course { get; set; }
+        public virtual ICollection<attendancy> attendancy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentToCourse> StudentToCourse { get; set; }
+        public virtual ICollection<course> course { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<student_to_course> student_to_course { get; set; }
     }
 }

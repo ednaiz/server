@@ -9,8 +9,9 @@ namespace DTO
     public class LessonDTO
     {
         public int Id { get; set; }
-        public DateTime Date { get; set; }
-        public string Start { get; set; }
-        public string Finish { get; set; }
+        public System.DateTime Date { get; set; }
+        public System.TimeSpan StartTime { get; set; }
+        public System.TimeSpan EndTime { get; set; }
+        public int CourseId { get; set; }
     }
 }

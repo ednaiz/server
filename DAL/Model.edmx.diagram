@@ -5,16 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9eea48fc863d4eee93ec858c923e4930" Name="Diagram1">
-        <EntityTypeShape EntityType="OnSpotModel.Attendency" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="OnSpotModel.Course" Width="1.5" PointX="3" PointY="3.625" />
-        <EntityTypeShape EntityType="OnSpotModel.Lesson" Width="1.5" PointX="3" PointY="6.75" />
-        <EntityTypeShape EntityType="OnSpotModel.LessonToCourse" Width="1.5" PointX="5.25" PointY="3.75" />
-        <EntityTypeShape EntityType="OnSpotModel.StudentToCourse" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="OnSpotModel.User" Width="1.5" PointX="0.75" PointY="1.5" />
-        <AssociationConnector Association="OnSpotModel.FK_Course_User" />
-        <AssociationConnector Association="OnSpotModel.FK_LessonToCourse_Course" />
-        <AssociationConnector Association="OnSpotModel.FK_LessonToCourse_Lesson" />
-        <AssociationConnector Association="OnSpotModel.FK_StudentToCourse_User" />
+        <EntityTypeShape EntityType="OnSpotModel.attendancy" Width="1.5" PointX="7.5" PointY="7.125" />
+        <EntityTypeShape EntityType="OnSpotModel.course" Width="1.5" PointX="3" PointY="8" />
+        <EntityTypeShape EntityType="OnSpotModel.lesson" Width="1.5" PointX="5.25" PointY="10.625" />
+        <EntityTypeShape EntityType="OnSpotModel.student_to_course" Width="1.5" PointX="5.25" PointY="6.125" />
+        <EntityTypeShape EntityType="OnSpotModel.user" Width="1.5" PointX="0.75" PointY="4" />
+        <AssociationConnector Association="OnSpotModel.FK_attendancy_lesson" />
+        <AssociationConnector Association="OnSpotModel.FK_attendancy_user" />
+        <AssociationConnector Association="OnSpotModel.FK_course_user" />
+        <AssociationConnector Association="OnSpotModel.FK_lesson_course" />
+        <AssociationConnector Association="OnSpotModel.FK_student_to_course_course" />
+        <AssociationConnector Association="OnSpotModel.FK_student_to_course_user" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

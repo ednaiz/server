@@ -8,45 +8,45 @@ namespace DAL.model
 {
     public class LessonModel
     {
-        public List<Lesson> Get()
+        public List<lesson> Get()
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.Lesson.ToList();
+                return db.lesson.ToList();
             }
         }
-        public Lesson Get(string Start, string Finish, DateTime Date)
+        public lesson Get(TimeSpan Start, TimeSpan Finish, DateTime Date)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.Lesson.FirstOrDefault(x => x.start.ToString() == Start && Finish == x.finish.ToString() && x.date == Date);
+                return db.lesson.FirstOrDefault(x => x.StartTime == Start && Finish == x.EndTime && x.Date == Date);
             }
         }
-        public Lesson Get(int id)
+        public lesson Get(int id)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                return db.Lesson.FirstOrDefault(x => x.Id == id);
+                return db.lesson.FirstOrDefault(x => x.Id == id);
             }
         }
-        public Lesson Post(Lesson Lesson)
+        public lesson Post(lesson lesson)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
-                Lesson = db.Lesson.Add(Lesson);
+                lesson = db.lesson.Add(lesson);
                 db.SaveChanges();
-                return Lesson;
+                return lesson;
             }
         }
-        public Lesson Put(Lesson Lesson)
+        public lesson Put(lesson lesson)
         {
             using (OnSpotEntities db = new OnSpotEntities())
             {
 
-                Lesson findLesson = db.Lesson.FirstOrDefault(x => x.Id == Lesson.Id);
-                findLesson.date = Lesson.date;
-                findLesson.start = Lesson.start;
-                findLesson.finish = Lesson.finish;
+                lesson findLesson = db.lesson.FirstOrDefault(x => x.Id == lesson.Id);
+                findLesson.Date = lesson.Date;
+                findLesson.StartTime = lesson.StartTime;
+                findLesson.EndTime = lesson.EndTime;
                 db.SaveChanges();
                 return findLesson;
             }

@@ -9,34 +9,36 @@ namespace BLL.convertion
 {
     public class StudentToCourseCovertion
     {
-        public static StudentToCourseDTO Convert(StudentToCourse student)
+        public static StudentToCourseDTO Convert(student_to_course obj)
         {
-            if (student == null)
+            if (obj == null)
                 return null;
             return new StudentToCourseDTO()
             { 
-                CourseId = student.CourseId, 
-                UserId = student.UserId
+                CourseId = obj.CourseId, 
+                UserId = obj.UserId,
+                Id=obj.Id
             };
 
         }
 
-        public static List<StudentToCourseDTO> Convert(List<StudentToCourse> student)
+        public static List<StudentToCourseDTO> Convert(List<student_to_course> obj)
         {
-            return student.Select(x => Convert(x)).ToList();
+            return obj.Select(x => Convert(x)).ToList();
         }
-        public static List<StudentToCourse> Convert(List<StudentToCourseDTO> student)
+        public static List<student_to_course> Convert(List<StudentToCourseDTO> obj)
         {
-            return student.Select(x => Convert(x)).ToList();
+            return obj.Select(x => Convert(x)).ToList();
         }
-        public static StudentToCourse Convert(StudentToCourseDTO student)
+        public static student_to_course Convert(StudentToCourseDTO obj)
         {
-            if (student == null)
+            if (obj == null)
                 return null;
-            return new StudentToCourse()
+            return new student_to_course()
             {
-                CourseId = student.CourseId,
-                UserId = student.UserId
+                CourseId = obj.CourseId,
+                UserId = obj.UserId,
+                Id= obj.Id
             };
         }
     }

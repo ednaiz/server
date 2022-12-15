@@ -16,7 +16,7 @@ namespace DTO
         public System.DateTime Date { get; set; }
         public int UserId { get; set; }
         public Nullable<int> LessonId { get; set; }
-        public Nullable<byte> Active { get; set; }
+        public Nullable<bool> Active { get; set; }
     }
     public class AttendancyActiveDTO
     {

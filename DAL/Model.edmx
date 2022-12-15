@@ -9,19 +9,19 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EnterTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="ExitTime" Type="time" Precision="7" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="LessonId" Type="int" />
-          <Property Name="Active" Type="tinyint" />
+          <Property Name="Active" Type="bit" />
         </EntityType>
         <EntityType Name="course">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="TeacherId" Type="int" Nullable="false" />
         </EntityType>
@@ -29,7 +29,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
@@ -39,7 +39,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="CourseId" Type="int" Nullable="false" />
         </EntityType>
@@ -47,12 +47,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="12" />
-          <Property Name="Email" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Type" Type="int" Nullable="false" />
-          <Property Name="Active" Type="tinyint" />
+          <Property Name="Active" Type="bit" />
           <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="20" />
         </EntityType>
@@ -198,13 +198,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EnterTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="ExitTime" Type="Time" Precision="7" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="LessonId" Type="Int32" />
-          <Property Name="Active" Type="Byte" />
+          <Property Name="Active" Type="Boolean" />
           <NavigationProperty Name="lesson" Relationship="OnSpotModel.FK_attendancy_lesson" FromRole="attendancy" ToRole="lesson" />
           <NavigationProperty Name="user" Relationship="OnSpotModel.FK_attendancy_user" FromRole="attendancy" ToRole="user" />
         </EntityType>
@@ -212,7 +212,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TeacherId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="user" Relationship="OnSpotModel.FK_course_user" FromRole="course" ToRole="user" />
@@ -223,7 +223,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
@@ -235,7 +235,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="CourseId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="course" Relationship="OnSpotModel.FK_student_to_course_course" FromRole="student_to_course" ToRole="course" />
@@ -245,12 +245,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="Int32" Nullable="false" />
-          <Property Name="Active" Type="Byte" />
+          <Property Name="Active" Type="Boolean" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="attendancy" Relationship="OnSpotModel.FK_attendancy_user" FromRole="user" ToRole="attendancy" />

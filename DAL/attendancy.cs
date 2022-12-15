@@ -20,7 +20,7 @@ namespace DAL
         public System.DateTime Date { get; set; }
         public int UserId { get; set; }
         public Nullable<int> LessonId { get; set; }
-        public Nullable<byte> Active { get; set; }
+        public Nullable<bool> Active { get; set; }
     
         public virtual lesson lesson { get; set; }
         public virtual user user { get; set; }

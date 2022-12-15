@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-   public class UserDTO
+    public class UserLoginDTO
+    {
+        public string Password { get; set; }
+        public string UserName { get; set; }
+    }
+        public class UserDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }

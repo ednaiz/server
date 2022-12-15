@@ -23,7 +23,7 @@ namespace DAL.model
                 return db.user.FirstOrDefault(x => x.Id == id);
             }
         }
-
+       
         public user Get(string userName, string password)
         {
             using (OnSpotEntities db = new OnSpotEntities())

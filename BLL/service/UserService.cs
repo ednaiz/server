@@ -19,9 +19,9 @@ namespace BLL
             return convertion.UserCovertion.Convert(new DAL.model.UserModel().Get(id));
         }
 
-        public static UserDTO get(string userName, string password)
+        public static UserDTO get(UserLoginDTO userLogin)
         {
-            return convertion.UserCovertion.Convert(new DAL.model.UserModel().Get(userName,password));
+            return convertion.UserCovertion.Convert(new DAL.model.UserModel().Get(userLogin.UserName, userLogin.Password));
         }
 
         public static UserDTO Post(UserDTO user)

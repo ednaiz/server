@@ -20,10 +20,11 @@ namespace Server.Controllers
         {
             return UserService.get(id);
         }
-
-        public UserDTO Get(string userName,string password)
+        [HttpPost]
+        [Route("~/api/user/login")]
+        public UserDTO Get(UserLoginDTO user)
         {
-            return UserService.get(userName,password);
+            return UserService.get(user);
         }
         [HttpPost]
         public UserDTO Post(UserDTO user)

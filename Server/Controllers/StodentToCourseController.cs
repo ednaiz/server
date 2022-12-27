@@ -15,5 +15,10 @@ namespace Server.Controllers
             BLL.service.StudentToCourseService.Post(marks);
             return Ok();
         }
+        public IHttpActionResult Get(List<StudentToCourseDTO> marks)
+        {
+            BLL.service.StudentToCourseService.Post(marks);
+            return Ok();
+        }
     }
 }
